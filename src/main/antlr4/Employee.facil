@@ -1,0 +1,10 @@
+test Employee{
+    getSalary(){    //test getSalary() method
+
+    }
+
+    setSalary(double){  //test setSalary(double) method
+
+    }
+
+}
