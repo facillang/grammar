@@ -47,6 +47,26 @@ public interface FacilListener extends ParseTreeListener {
 	 */
 	void exitMethod(FacilParser.MethodContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link FacilParser#testMethods}.
+	 * @param ctx the parse tree
+	 */
+	void enterTestMethods(FacilParser.TestMethodsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#testMethods}.
+	 * @param ctx the parse tree
+	 */
+	void exitTestMethods(FacilParser.TestMethodsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#nonTestMethods}.
+	 * @param ctx the parse tree
+	 */
+	void enterNonTestMethods(FacilParser.NonTestMethodsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#nonTestMethods}.
+	 * @param ctx the parse tree
+	 */
+	void exitNonTestMethods(FacilParser.NonTestMethodsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link FacilParser#methodBody}.
 	 * @param ctx the parse tree
 	 */
@@ -106,6 +126,86 @@ public interface FacilListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFormalParameter(FacilParser.FormalParameterContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#formalParametersForNonTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParametersForNonTestMethod(FacilParser.FormalParametersForNonTestMethodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#formalParametersForNonTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParametersForNonTestMethod(FacilParser.FormalParametersForNonTestMethodContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#formalParameterListForNonTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameterListForNonTestMethod(FacilParser.FormalParameterListForNonTestMethodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#formalParameterListForNonTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameterListForNonTestMethod(FacilParser.FormalParameterListForNonTestMethodContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#formalParameterForNonTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameterForNonTestMethod(FacilParser.FormalParameterForNonTestMethodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#formalParameterForNonTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameterForNonTestMethod(FacilParser.FormalParameterForNonTestMethodContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#lastFormalParameterForNonTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void enterLastFormalParameterForNonTestMethod(FacilParser.LastFormalParameterForNonTestMethodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#lastFormalParameterForNonTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void exitLastFormalParameterForNonTestMethod(FacilParser.LastFormalParameterForNonTestMethodContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableModifier(FacilParser.VariableModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableModifier(FacilParser.VariableModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableDeclaratorId}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclaratorId(FacilParser.VariableDeclaratorIdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableDeclaratorId}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclaratorId(FacilParser.VariableDeclaratorIdContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#qualifiedNameList}.
+	 * @param ctx the parse tree
+	 */
+	void enterQualifiedNameList(FacilParser.QualifiedNameListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#qualifiedNameList}.
+	 * @param ctx the parse tree
+	 */
+	void exitQualifiedNameList(FacilParser.QualifiedNameListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#qualifiedName}.
+	 * @param ctx the parse tree
+	 */
+	void enterQualifiedName(FacilParser.QualifiedNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#qualifiedName}.
+	 * @param ctx the parse tree
+	 */
+	void exitQualifiedName(FacilParser.QualifiedNameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link FacilParser#type}.
 	 * @param ctx the parse tree

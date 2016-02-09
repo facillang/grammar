@@ -12,8 +12,18 @@ classBody
 
 
 method
+:   testMethods | nonTestMethods
+;
+
+testMethods
 :   Identifier formalParameters
-    (methodBody)
+     (methodBody)
+;
+
+nonTestMethods
+:   (type|'void') Identifier formalParametersForNonTestMethod ('[' ']')*
+         ('throws' qualifiedNameList)?
+         (   methodBody   )                     //might need different methodBody
 ;
 
 methodBody
@@ -40,6 +50,38 @@ formalParameter
 :   type
 ;
 
+formalParametersForNonTestMethod
+:   '(' formalParameterListForNonTestMethod? ')'
+;
+
+formalParameterListForNonTestMethod
+:   formalParameterForNonTestMethod (',' formalParameterForNonTestMethod)* (',' lastFormalParameterForNonTestMethod)?
+|   lastFormalParameterForNonTestMethod
+;
+
+formalParameterForNonTestMethod
+:   variableModifier* type variableDeclaratorId
+;
+
+lastFormalParameterForNonTestMethod
+:   variableModifier* type '...' variableDeclaratorId
+;
+
+variableModifier                //ignoring annotations for now.
+:   'final'
+;
+
+variableDeclaratorId
+:   Identifier ('[' ']')*
+;
+
+qualifiedNameList
+:   qualifiedName (',' qualifiedName)*
+;
+
+qualifiedName
+:   Identifier ('.' Identifier)*
+;
 
 type
 :   classOrInterfaceType ('[' ']')*
