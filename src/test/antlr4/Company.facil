@@ -1,0 +1,7 @@
+test Company {
+
+  getEmployee(String) { }   //test method
+
+  Employee getEmployee(String named) { } //non test method
+
+}
