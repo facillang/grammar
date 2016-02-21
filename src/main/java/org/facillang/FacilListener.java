@@ -127,55 +127,45 @@ public interface FacilListener extends ParseTreeListener {
 	 */
 	void exitFormalParameter(FacilParser.FormalParameterContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FacilParser#formalParametersForNonTestMethod}.
+	 * Enter a parse tree produced by {@link FacilParser#formalParametersNTM}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormalParametersForNonTestMethod(FacilParser.FormalParametersForNonTestMethodContext ctx);
+	void enterFormalParametersNTM(FacilParser.FormalParametersNTMContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FacilParser#formalParametersForNonTestMethod}.
+	 * Exit a parse tree produced by {@link FacilParser#formalParametersNTM}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormalParametersForNonTestMethod(FacilParser.FormalParametersForNonTestMethodContext ctx);
+	void exitFormalParametersNTM(FacilParser.FormalParametersNTMContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FacilParser#formalParameterListForNonTestMethod}.
+	 * Enter a parse tree produced by {@link FacilParser#formalParameterListNTM}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormalParameterListForNonTestMethod(FacilParser.FormalParameterListForNonTestMethodContext ctx);
+	void enterFormalParameterListNTM(FacilParser.FormalParameterListNTMContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FacilParser#formalParameterListForNonTestMethod}.
+	 * Exit a parse tree produced by {@link FacilParser#formalParameterListNTM}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormalParameterListForNonTestMethod(FacilParser.FormalParameterListForNonTestMethodContext ctx);
+	void exitFormalParameterListNTM(FacilParser.FormalParameterListNTMContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FacilParser#formalParameterForNonTestMethod}.
+	 * Enter a parse tree produced by {@link FacilParser#formalParameterNTM}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormalParameterForNonTestMethod(FacilParser.FormalParameterForNonTestMethodContext ctx);
+	void enterFormalParameterNTM(FacilParser.FormalParameterNTMContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FacilParser#formalParameterForNonTestMethod}.
+	 * Exit a parse tree produced by {@link FacilParser#formalParameterNTM}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormalParameterForNonTestMethod(FacilParser.FormalParameterForNonTestMethodContext ctx);
+	void exitFormalParameterNTM(FacilParser.FormalParameterNTMContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FacilParser#lastFormalParameterForNonTestMethod}.
+	 * Enter a parse tree produced by {@link FacilParser#lastFormalParameterNTM}.
 	 * @param ctx the parse tree
 	 */
-	void enterLastFormalParameterForNonTestMethod(FacilParser.LastFormalParameterForNonTestMethodContext ctx);
+	void enterLastFormalParameterNTM(FacilParser.LastFormalParameterNTMContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FacilParser#lastFormalParameterForNonTestMethod}.
+	 * Exit a parse tree produced by {@link FacilParser#lastFormalParameterNTM}.
 	 * @param ctx the parse tree
 	 */
-	void exitLastFormalParameterForNonTestMethod(FacilParser.LastFormalParameterForNonTestMethodContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link FacilParser#variableModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariableModifier(FacilParser.VariableModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FacilParser#variableModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariableModifier(FacilParser.VariableModifierContext ctx);
+	void exitLastFormalParameterNTM(FacilParser.LastFormalParameterNTMContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link FacilParser#variableDeclaratorId}.
 	 * @param ctx the parse tree
@@ -227,6 +217,636 @@ public interface FacilListener extends ParseTreeListener {
 	 */
 	void exitClassOrInterfaceType(FacilParser.ClassOrInterfaceTypeContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link FacilParser#methodBodyNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodBodyNTM(FacilParser.MethodBodyNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#methodBodyNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodBodyNTM(FacilParser.MethodBodyNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#blockNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlockNTM(FacilParser.BlockNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#blockNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlockNTM(FacilParser.BlockNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#blockStatementNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlockStatementNTM(FacilParser.BlockStatementNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#blockStatementNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlockStatementNTM(FacilParser.BlockStatementNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#localVariableDeclarationStatementNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalVariableDeclarationStatementNTM(FacilParser.LocalVariableDeclarationStatementNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#localVariableDeclarationStatementNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalVariableDeclarationStatementNTM(FacilParser.LocalVariableDeclarationStatementNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#localVariableDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalVariableDeclarationNTM(FacilParser.LocalVariableDeclarationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#localVariableDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalVariableDeclarationNTM(FacilParser.LocalVariableDeclarationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableModifierNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableModifierNTM(FacilParser.VariableModifierNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableModifierNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableModifierNTM(FacilParser.VariableModifierNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#annotationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationNTM(FacilParser.AnnotationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#annotationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationNTM(FacilParser.AnnotationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#annotationNameNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationNameNTM(FacilParser.AnnotationNameNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#annotationNameNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationNameNTM(FacilParser.AnnotationNameNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#elementValuePairsNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValuePairsNTM(FacilParser.ElementValuePairsNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#elementValuePairsNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValuePairsNTM(FacilParser.ElementValuePairsNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#elementValuePairNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValuePairNTM(FacilParser.ElementValuePairNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#elementValuePairNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValuePairNTM(FacilParser.ElementValuePairNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#elementValueNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValueNTM(FacilParser.ElementValueNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#elementValueNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValueNTM(FacilParser.ElementValueNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#expressionNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionNTM(FacilParser.ExpressionNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#expressionNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionNTM(FacilParser.ExpressionNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#statementNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementNTM(FacilParser.StatementNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#statementNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementNTM(FacilParser.StatementNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#parExpressionNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterParExpressionNTM(FacilParser.ParExpressionNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#parExpressionNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitParExpressionNTM(FacilParser.ParExpressionNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#forControlNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterForControlNTM(FacilParser.ForControlNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#forControlNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitForControlNTM(FacilParser.ForControlNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#forInitNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterForInitNTM(FacilParser.ForInitNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#forInitNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitForInitNTM(FacilParser.ForInitNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#enhancedForControlNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnhancedForControlNTM(FacilParser.EnhancedForControlNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#enhancedForControlNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnhancedForControlNTM(FacilParser.EnhancedForControlNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#forUpdateNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterForUpdateNTM(FacilParser.ForUpdateNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#forUpdateNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitForUpdateNTM(FacilParser.ForUpdateNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#catchClauseNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterCatchClauseNTM(FacilParser.CatchClauseNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#catchClauseNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitCatchClauseNTM(FacilParser.CatchClauseNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#catchTypeNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterCatchTypeNTM(FacilParser.CatchTypeNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#catchTypeNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitCatchTypeNTM(FacilParser.CatchTypeNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#finallyBlockNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterFinallyBlockNTM(FacilParser.FinallyBlockNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#finallyBlockNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitFinallyBlockNTM(FacilParser.FinallyBlockNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#resourceSpecificationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterResourceSpecificationNTM(FacilParser.ResourceSpecificationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#resourceSpecificationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitResourceSpecificationNTM(FacilParser.ResourceSpecificationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#resourcesNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterResourcesNTM(FacilParser.ResourcesNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#resourcesNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitResourcesNTM(FacilParser.ResourcesNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#resourceNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterResourceNTM(FacilParser.ResourceNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#resourceNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitResourceNTM(FacilParser.ResourceNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#switchBlockStatementGroupNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchBlockStatementGroupNTM(FacilParser.SwitchBlockStatementGroupNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#switchBlockStatementGroupNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchBlockStatementGroupNTM(FacilParser.SwitchBlockStatementGroupNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#switchLabelNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchLabelNTM(FacilParser.SwitchLabelNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#switchLabelNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchLabelNTM(FacilParser.SwitchLabelNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#constantExpressionNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstantExpressionNTM(FacilParser.ConstantExpressionNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#constantExpressionNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstantExpressionNTM(FacilParser.ConstantExpressionNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#enumConstantNameNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumConstantNameNTM(FacilParser.EnumConstantNameNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#enumConstantNameNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumConstantNameNTM(FacilParser.EnumConstantNameNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#statementExpressionNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementExpressionNTM(FacilParser.StatementExpressionNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#statementExpressionNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementExpressionNTM(FacilParser.StatementExpressionNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#creatorNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterCreatorNTM(FacilParser.CreatorNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#creatorNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitCreatorNTM(FacilParser.CreatorNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#createdNameNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterCreatedNameNTM(FacilParser.CreatedNameNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#createdNameNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitCreatedNameNTM(FacilParser.CreatedNameNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#arrayCreatorRestNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayCreatorRestNTM(FacilParser.ArrayCreatorRestNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#arrayCreatorRestNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayCreatorRestNTM(FacilParser.ArrayCreatorRestNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#classCreatorRestNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassCreatorRestNTM(FacilParser.ClassCreatorRestNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#classCreatorRestNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassCreatorRestNTM(FacilParser.ClassCreatorRestNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#typeArgumentsOrDiamondNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeArgumentsOrDiamondNTM(FacilParser.TypeArgumentsOrDiamondNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#typeArgumentsOrDiamondNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeArgumentsOrDiamondNTM(FacilParser.TypeArgumentsOrDiamondNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#classBodyNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassBodyNTM(FacilParser.ClassBodyNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#classBodyNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassBodyNTM(FacilParser.ClassBodyNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#classBodyDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassBodyDeclarationNTM(FacilParser.ClassBodyDeclarationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#classBodyDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassBodyDeclarationNTM(FacilParser.ClassBodyDeclarationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#modifierNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterModifierNTM(FacilParser.ModifierNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#modifierNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitModifierNTM(FacilParser.ModifierNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#classOrInterfaceModifierNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassOrInterfaceModifierNTM(FacilParser.ClassOrInterfaceModifierNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#classOrInterfaceModifierNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassOrInterfaceModifierNTM(FacilParser.ClassOrInterfaceModifierNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#memberDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterMemberDeclarationNTM(FacilParser.MemberDeclarationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#memberDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitMemberDeclarationNTM(FacilParser.MemberDeclarationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#methodDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodDeclarationNTM(FacilParser.MethodDeclarationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#methodDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodDeclarationNTM(FacilParser.MethodDeclarationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#constructorDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstructorDeclarationNTM(FacilParser.ConstructorDeclarationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#constructorDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstructorDeclarationNTM(FacilParser.ConstructorDeclarationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#constructorBodyNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstructorBodyNTM(FacilParser.ConstructorBodyNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#constructorBodyNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstructorBodyNTM(FacilParser.ConstructorBodyNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#classDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassDeclarationNTM(FacilParser.ClassDeclarationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#classDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassDeclarationNTM(FacilParser.ClassDeclarationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#typeParametersNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeParametersNTM(FacilParser.TypeParametersNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#typeParametersNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeParametersNTM(FacilParser.TypeParametersNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#typeParameterNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeParameterNTM(FacilParser.TypeParameterNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#typeParameterNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeParameterNTM(FacilParser.TypeParameterNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#typeBoundNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeBoundNTM(FacilParser.TypeBoundNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#typeBoundNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeBoundNTM(FacilParser.TypeBoundNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#fieldDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterFieldDeclarationNTM(FacilParser.FieldDeclarationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#fieldDeclarationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitFieldDeclarationNTM(FacilParser.FieldDeclarationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableDeclaratorsNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclaratorsNTM(FacilParser.VariableDeclaratorsNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableDeclaratorsNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclaratorsNTM(FacilParser.VariableDeclaratorsNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableDeclaratorNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclaratorNTM(FacilParser.VariableDeclaratorNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableDeclaratorNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclaratorNTM(FacilParser.VariableDeclaratorNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableDeclaratorIdNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclaratorIdNTM(FacilParser.VariableDeclaratorIdNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableDeclaratorIdNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclaratorIdNTM(FacilParser.VariableDeclaratorIdNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#innerCreatorNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterInnerCreatorNTM(FacilParser.InnerCreatorNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#innerCreatorNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitInnerCreatorNTM(FacilParser.InnerCreatorNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#nonWildcardTypeArgumentsOrDiamondNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterNonWildcardTypeArgumentsOrDiamondNTM(FacilParser.NonWildcardTypeArgumentsOrDiamondNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#nonWildcardTypeArgumentsOrDiamondNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitNonWildcardTypeArgumentsOrDiamondNTM(FacilParser.NonWildcardTypeArgumentsOrDiamondNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#explicitGenericInvocationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterExplicitGenericInvocationNTM(FacilParser.ExplicitGenericInvocationNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#explicitGenericInvocationNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitExplicitGenericInvocationNTM(FacilParser.ExplicitGenericInvocationNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#elementValueArrayInitializerNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValueArrayInitializerNTM(FacilParser.ElementValueArrayInitializerNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#elementValueArrayInitializerNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValueArrayInitializerNTM(FacilParser.ElementValueArrayInitializerNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#arrayInitializerNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayInitializerNTM(FacilParser.ArrayInitializerNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#arrayInitializerNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayInitializerNTM(FacilParser.ArrayInitializerNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableInitializerNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableInitializerNTM(FacilParser.VariableInitializerNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableInitializerNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableInitializerNTM(FacilParser.VariableInitializerNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#nonWildcardTypeArgumentsNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterNonWildcardTypeArgumentsNTM(FacilParser.NonWildcardTypeArgumentsNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#nonWildcardTypeArgumentsNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitNonWildcardTypeArgumentsNTM(FacilParser.NonWildcardTypeArgumentsNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#typeList}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeList(FacilParser.TypeListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#typeList}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeList(FacilParser.TypeListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#primary}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimary(FacilParser.PrimaryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#primary}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimary(FacilParser.PrimaryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#explicitGenericInvocationSuffixNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterExplicitGenericInvocationSuffixNTM(FacilParser.ExplicitGenericInvocationSuffixNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#explicitGenericInvocationSuffixNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitExplicitGenericInvocationSuffixNTM(FacilParser.ExplicitGenericInvocationSuffixNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#superSuffixNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterSuperSuffixNTM(FacilParser.SuperSuffixNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#superSuffixNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitSuperSuffixNTM(FacilParser.SuperSuffixNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#argumentsNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgumentsNTM(FacilParser.ArgumentsNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#argumentsNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgumentsNTM(FacilParser.ArgumentsNTMContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#expressionListNTM}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionListNTM(FacilParser.ExpressionListNTMContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#expressionListNTM}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionListNTM(FacilParser.ExpressionListNTMContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link FacilParser#primitiveType}.
 	 * @param ctx the parse tree
 	 */
@@ -256,4 +876,14 @@ public interface FacilListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTypeArgument(FacilParser.TypeArgumentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteral(FacilParser.LiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteral(FacilParser.LiteralContext ctx);
 }
