@@ -20,9 +20,9 @@ testMethods
 ;
 
 nonTestMethods
-:   (type|'void') Identifier formalParametersNTM('[' ']')*
+:   (type|'void') Identifier formalParametersForNonTestMethod('[' ']')*
          ('throws' qualifiedNameList)?
-         (   methodBodyNTM   )
+         (   methodBodyForNonTestMethod   )
 ;
 
 methodBody
@@ -49,21 +49,21 @@ formalParameter
 :   type
 ;
 
-formalParametersNTM
-:   '(' formalParameterListNTM? ')'
+formalParametersForNonTestMethod
+:   '(' formalParameterListForNonTestMethod? ')'
 ;
 
-formalParameterListNTM
-:   formalParameterNTM (',' formalParameterNTM)* (',' lastFormalParameterNTM)?
-|   lastFormalParameterNTM
+formalParameterListForNonTestMethod
+:   formalParameterForNonTestMethod (',' formalParameterForNonTestMethod)* (',' lastFormalParameterForNonTestMethod)?
+|   lastFormalParameterForNonTestMethod
 ;
 
-formalParameterNTM
-:   variableModifierNTM* type variableDeclaratorId
+formalParameterForNonTestMethod
+:   variableModifierForNonTestMethod* type variableDeclaratorId
 ;
 
-lastFormalParameterNTM
-:   variableModifierNTM* type '...' variableDeclaratorId
+lastFormalParameterForNonTestMethod
+:   variableModifierForNonTestMethod* type '...' variableDeclaratorId
 ;
 
 variableDeclaratorId
@@ -87,81 +87,81 @@ classOrInterfaceType
 :   Identifier typeArguments? ('.' Identifier typeArguments? )*
 ;
 
-methodBodyNTM
-:   blockNTM
+methodBodyForNonTestMethod
+:   blockForNonTestMethod
 ;
 
-blockNTM
-:   '{' blockStatementNTM* '}'
+blockForNonTestMethod
+:   '{' blockStatementForNonTestMethod* '}'
 ;
 
-blockStatementNTM
-:  localVariableDeclarationStatementNTM
-|   statementNTM
+blockStatementForNonTestMethod
+:  localVariableDeclarationStatementForNonTestMethod
+|   statementForNonTestMethod
 ;
 
-localVariableDeclarationStatementNTM
-:   localVariableDeclarationNTM ';'
+localVariableDeclarationStatementForNonTestMethod
+:   localVariableDeclarationForNonTestMethod ';'
 ;
 
-localVariableDeclarationNTM
-:   variableModifierNTM* type variableDeclaratorsNTM
+localVariableDeclarationForNonTestMethod
+:   variableModifierForNonTestMethod* type variableDeclaratorsForNonTestMethod
 ;
 
-variableModifierNTM
+variableModifierForNonTestMethod
 :   'final'
-|   annotationNTM
+|   annotationForNonTestMethod
 ;
 
-annotationNTM
-:   '@' annotationNameNTM ( '(' ( elementValuePairsNTM | elementValueNTM )? ')' )?
+annotationForNonTestMethod
+:   '@' annotationNameForNonTestMethod ( '(' ( elementValuePairsForNonTestMethod | elementValueForNonTestMethod )? ')' )?
 ;
 
-annotationNameNTM:
+annotationNameForNonTestMethod:
    qualifiedName
 ;
 
-elementValuePairsNTM
-:   elementValuePairNTM (',' elementValuePairNTM)*
+elementValuePairsForNonTestMethod
+:   elementValuePairForNonTestMethod (',' elementValuePairForNonTestMethod)*
 ;
 
-elementValuePairNTM
-:   Identifier '=' elementValueNTM
+elementValuePairForNonTestMethod
+:   Identifier '=' elementValueForNonTestMethod
 ;
 
-elementValueNTM
-:   expressionNTM
-|   annotationNTM
-|   elementValueArrayInitializerNTM
+elementValueForNonTestMethod
+:   expressionForNonTestMethod
+|   annotationForNonTestMethod
+|   elementValueArrayInitializerForNonTestMethod
 ;
 
-expressionNTM
+expressionForNonTestMethod
 :   primary
-|   expressionNTM '.' Identifier
-|   expressionNTM '.' 'this'
-|   expressionNTM '.' 'new' nonWildcardTypeArgumentsNTM? innerCreatorNTM
-|   expressionNTM '.' 'super' superSuffixNTM
-|   expressionNTM '.' explicitGenericInvocationNTM
-|   expressionNTM '[' expressionNTM ']'
-|   expressionNTM '(' expressionListNTM? ')'
-|   'new' creatorNTM
-|   '(' type ')' expressionNTM
-|   expressionNTM ('++' | '--')
-|   ('+'|'-'|'++'|'--') expressionNTM
-|   ('~'|'!') expressionNTM
-|   expressionNTM ('*'|'/'|'%') expressionNTM
-|   expressionNTM ('+'|'-') expressionNTM
-|   expressionNTM ('<' '<' | '>' '>' '>' | '>' '>') expressionNTM
-|   expressionNTM ('<=' | '>=' | '>' | '<') expressionNTM
-|   expressionNTM 'instanceof' type
-|   expressionNTM ('==' | '!=') expressionNTM
-|   expressionNTM '&' expressionNTM
-|   expressionNTM '^' expressionNTM
-|   expressionNTM '|' expressionNTM
-|   expressionNTM '&&' expressionNTM
-|   expressionNTM '||' expressionNTM
-|   expressionNTM '?' expressionNTM ':' expressionNTM
-|   <assoc=right> expressionNTM
+|   expressionForNonTestMethod '.' Identifier
+|   expressionForNonTestMethod '.' 'this'
+|   expressionForNonTestMethod '.' 'new' nonWildcardTypeArgumentsForNonTestMethod? innerCreatorForNonTestMethod
+|   expressionForNonTestMethod '.' 'super' superSuffixForNonTestMethod
+|   expressionForNonTestMethod '.' explicitGenericInvocationForNonTestMethod
+|   expressionForNonTestMethod '[' expressionForNonTestMethod ']'
+|   expressionForNonTestMethod '(' expressionListForNonTestMethod? ')'
+|   'new' creatorForNonTestMethod
+|   '(' type ')' expressionForNonTestMethod
+|   expressionForNonTestMethod ('++' | '--')
+|   ('+'|'-'|'++'|'--') expressionForNonTestMethod
+|   ('~'|'!') expressionForNonTestMethod
+|   expressionForNonTestMethod ('*'|'/'|'%') expressionForNonTestMethod
+|   expressionForNonTestMethod ('+'|'-') expressionForNonTestMethod
+|   expressionForNonTestMethod ('<' '<' | '>' '>' '>' | '>' '>') expressionForNonTestMethod
+|   expressionForNonTestMethod ('<=' | '>=' | '>' | '<') expressionForNonTestMethod
+|   expressionForNonTestMethod 'instanceof' type
+|   expressionForNonTestMethod ('==' | '!=') expressionForNonTestMethod
+|   expressionForNonTestMethod '&' expressionForNonTestMethod
+|   expressionForNonTestMethod '^' expressionForNonTestMethod
+|   expressionForNonTestMethod '|' expressionForNonTestMethod
+|   expressionForNonTestMethod '&&' expressionForNonTestMethod
+|   expressionForNonTestMethod '||' expressionForNonTestMethod
+|   expressionForNonTestMethod '?' expressionForNonTestMethod ':' expressionForNonTestMethod
+|   <assoc=right> expressionForNonTestMethod
      (   '='
         |   '+='
         |   '-='
@@ -175,139 +175,139 @@ expressionNTM
         |   '<<='
         |   '%='
      )
-     expressionNTM
+     expressionForNonTestMethod
 ;
 
 
-statementNTM
-:   blockNTM
-|   ASSERT expressionNTM (':' expressionNTM)? ';'
-|   'if' parExpressionNTM statementNTM ('else' statementNTM)?
-|   'for' '(' forControlNTM ')' statementNTM
-|   'while' parExpressionNTM statementNTM
-|   'do' statementNTM 'while' parExpressionNTM ';'
-|   'try' blockNTM (catchClauseNTM+ finallyBlockNTM? | finallyBlockNTM)
-|   'try' resourceSpecificationNTM blockNTM catchClauseNTM* finallyBlockNTM?
-|   'switch' parExpressionNTM '{' switchBlockStatementGroupNTM* switchLabelNTM* '}'
-|   'synchronized' parExpressionNTM blockNTM
-|   'return' expressionNTM? ';'
-|   'throw' expressionNTM ';'
+statementForNonTestMethod
+:   blockForNonTestMethod
+|   ASSERT expressionForNonTestMethod (':' expressionForNonTestMethod)? ';'
+|   'if' parExpressionForNonTestMethod statementForNonTestMethod ('else' statementForNonTestMethod)?
+|   'for' '(' forControlForNonTestMethod ')' statementForNonTestMethod
+|   'while' parExpressionForNonTestMethod statementForNonTestMethod
+|   'do' statementForNonTestMethod 'while' parExpressionForNonTestMethod ';'
+|   'try' blockForNonTestMethod (catchClauseForNonTestMethod+ finallyBlockForNonTestMethod? | finallyBlockForNonTestMethod)
+|   'try' resourceSpecificationForNonTestMethod blockForNonTestMethod catchClauseForNonTestMethod* finallyBlockForNonTestMethod?
+|   'switch' parExpressionForNonTestMethod '{' switchBlockStatementGroupForNonTestMethod* switchLabelForNonTestMethod* '}'
+|   'synchronized' parExpressionForNonTestMethod blockForNonTestMethod
+|   'return' expressionForNonTestMethod? ';'
+|   'throw' expressionForNonTestMethod ';'
 |   'break' Identifier? ';'
 |   'continue' Identifier? ';'
 |   ';'
-|   statementExpressionNTM ';'
-|   Identifier ':' statementNTM
+|   statementExpressionForNonTestMethod ';'
+|   Identifier ':' statementForNonTestMethod
 ;
 
 
 
-parExpressionNTM
-:   '(' expressionNTM ')'
+parExpressionForNonTestMethod
+:   '(' expressionForNonTestMethod ')'
 ;
 
-forControlNTM
-:   enhancedForControlNTM
-|   forInitNTM? ';' expressionNTM? ';' forUpdateNTM?
+forControlForNonTestMethod
+:   enhancedForControlForNonTestMethod
+|   forInitForNonTestMethod? ';' expressionForNonTestMethod? ';' forUpdateForNonTestMethod?
 ;
 
-forInitNTM
-:   localVariableDeclarationNTM
-|   expressionListNTM
+forInitForNonTestMethod
+:   localVariableDeclarationForNonTestMethod
+|   expressionListForNonTestMethod
 ;
 
-enhancedForControlNTM
-:   variableModifierNTM* type variableDeclaratorId ':' expressionNTM
+enhancedForControlForNonTestMethod
+:   variableModifierForNonTestMethod* type variableDeclaratorId ':' expressionForNonTestMethod
 ;
 
-forUpdateNTM
-:   expressionListNTM
+forUpdateForNonTestMethod
+:   expressionListForNonTestMethod
 ;
 
-catchClauseNTM
-:   'catch' '(' variableModifierNTM* catchTypeNTM Identifier ')' blockNTM
+catchClauseForNonTestMethod
+:   'catch' '(' variableModifierForNonTestMethod* catchTypeForNonTestMethod Identifier ')' blockForNonTestMethod
 ;
 
-catchTypeNTM
+catchTypeForNonTestMethod
 :   qualifiedName ('|' qualifiedName)*
 ;
 
-finallyBlockNTM
-: 'finally' blockNTM
+finallyBlockForNonTestMethod
+: 'finally' blockForNonTestMethod
 ;
 
-resourceSpecificationNTM
-: '(' resourcesNTM ';'? ')'
+resourceSpecificationForNonTestMethod
+: '(' resourcesForNonTestMethod ';'? ')'
 ;
 
-resourcesNTM
-:   resourceNTM (';' resourceNTM)*
+resourcesForNonTestMethod
+:   resourceForNonTestMethod (';' resourceForNonTestMethod)*
 ;
 
-resourceNTM
-:   variableModifierNTM* classOrInterfaceType variableDeclaratorId '=' expressionNTM
+resourceForNonTestMethod
+:   variableModifierForNonTestMethod* classOrInterfaceType variableDeclaratorId '=' expressionForNonTestMethod
 ;
 
-switchBlockStatementGroupNTM
-:   switchLabelNTM+ blockStatementNTM+
+switchBlockStatementGroupForNonTestMethod
+:   switchLabelForNonTestMethod+ blockStatementForNonTestMethod+
 ;
 
-switchLabelNTM
-:   'case' constantExpressionNTM ':'
-|   'case' enumConstantNameNTM ':'
+switchLabelForNonTestMethod
+:   'case' constantExpressionForNonTestMethod ':'
+|   'case' enumConstantNameForNonTestMethod ':'
 |   'default' ':'
 ;
 
-constantExpressionNTM
-:   expressionNTM
+constantExpressionForNonTestMethod
+:   expressionForNonTestMethod
 ;
 
-enumConstantNameNTM
+enumConstantNameForNonTestMethod
 :   Identifier
 ;
 
-statementExpressionNTM
-:   expressionNTM
+statementExpressionForNonTestMethod
+:   expressionForNonTestMethod
 ;
 
 
-creatorNTM
-:   nonWildcardTypeArgumentsNTM createdNameNTM classCreatorRestNTM
-|   createdNameNTM (arrayCreatorRestNTM | classCreatorRestNTM)
+creatorForNonTestMethod
+:   nonWildcardTypeArgumentsForNonTestMethod createdNameForNonTestMethod classCreatorRestForNonTestMethod
+|   createdNameForNonTestMethod (arrayCreatorRestForNonTestMethod | classCreatorRestForNonTestMethod)
 ;
 
-createdNameNTM
-:   Identifier typeArgumentsOrDiamondNTM? ('.' Identifier typeArgumentsOrDiamondNTM?)*
+createdNameForNonTestMethod
+:   Identifier typeArgumentsOrDiamondForNonTestMethod? ('.' Identifier typeArgumentsOrDiamondForNonTestMethod?)*
 |   primitiveType
 ;
 
-arrayCreatorRestNTM
+arrayCreatorRestForNonTestMethod
 :   '['
-     (   ']' ('[' ']')* arrayInitializerNTM
-        |   expressionNTM ']' ('[' expressionNTM ']')* ('[' ']')*
+     (   ']' ('[' ']')* arrayInitializerForNonTestMethod
+        |   expressionForNonTestMethod ']' ('[' expressionForNonTestMethod ']')* ('[' ']')*
      )
 ;
 
-classCreatorRestNTM
-    :   argumentsNTM classBodyNTM?
+classCreatorRestForNonTestMethod
+    :   argumentsForNonTestMethod classBodyForNonTestMethod?
     ;
 
-typeArgumentsOrDiamondNTM
+typeArgumentsOrDiamondForNonTestMethod
 :   '<' '>'
     |   typeArguments
 ;
 
-classBodyNTM
-:  '{' classBodyDeclarationNTM* '}'       //TODO need to change names of rules for classBodyNTM
+classBodyForNonTestMethod
+:  '{' classBodyDeclarationForNonTestMethod* '}'       //TODO need to change names of rules for classBodyForNonTestMethod
 ;
 
-classBodyDeclarationNTM
+classBodyDeclarationForNonTestMethod
 :   ';'
-|   'static'? blockNTM
-|   modifierNTM* memberDeclarationNTM
+|   'static'? blockForNonTestMethod
+|   modifierForNonTestMethod* memberDeclarationForNonTestMethod
 ;
 
-modifierNTM
-:   classOrInterfaceModifierNTM
+modifierForNonTestMethod
+:   classOrInterfaceModifierForNonTestMethod
     |   (   'native'
         |   'synchronized'
         |   'transient'
@@ -315,8 +315,8 @@ modifierNTM
         )
 ;
 
-classOrInterfaceModifierNTM
-:   annotationNTM
+classOrInterfaceModifierForNonTestMethod
+:   annotationForNonTestMethod
     |   (   'public'
         |   'protected'
         |   'private'
@@ -327,91 +327,91 @@ classOrInterfaceModifierNTM
     )
 ;
 
-memberDeclarationNTM
-:   methodDeclarationNTM
-|   fieldDeclarationNTM         //Ignored for now
-|   constructorDeclarationNTM   //genericMethodDeclaration \enumDeclaration \annotationTypeDeclaration \interfaceDeclaration
-|   classDeclarationNTM         // genericConstructorDeclaration
+memberDeclarationForNonTestMethod
+:   methodDeclarationForNonTestMethod
+|   fieldDeclarationForNonTestMethod         //Ignored for now
+|   constructorDeclarationForNonTestMethod   //genericMethodDeclaration \enumDeclaration \annotationTypeDeclaration \interfaceDeclaration
+|   classDeclarationForNonTestMethod         // genericConstructorDeclaration
 ;
 
-methodDeclarationNTM
-:  modifierNTM* (type|'void') Identifier formalParametersNTM ('[' ']')*
+methodDeclarationForNonTestMethod
+:  modifierForNonTestMethod* (type|'void') Identifier formalParametersForNonTestMethod ('[' ']')*
          ('throws' qualifiedNameList)?
-         (   methodBodyNTM   )
+         (   methodBodyForNonTestMethod   )
 ;
 
-constructorDeclarationNTM
-:   Identifier formalParametersNTM ('throws' qualifiedNameList)?
-     constructorBodyNTM
+constructorDeclarationForNonTestMethod
+:   Identifier formalParametersForNonTestMethod ('throws' qualifiedNameList)?
+     constructorBodyForNonTestMethod
 ;
 
-constructorBodyNTM
-: blockNTM
+constructorBodyForNonTestMethod
+: blockForNonTestMethod
 ;
 
-classDeclarationNTM
-:   'class' Identifier typeParametersNTM?
+classDeclarationForNonTestMethod
+:   'class' Identifier typeParametersForNonTestMethod?
         ('extends' type)?
         ('implements' typeList)?
-        classBodyNTM
+        classBodyForNonTestMethod
 ;
 
-typeParametersNTM
-:   '<' typeParameterNTM (',' typeParameterNTM)* '>'
+typeParametersForNonTestMethod
+:   '<' typeParameterForNonTestMethod (',' typeParameterForNonTestMethod)* '>'
 ;
 
-typeParameterNTM
-:   Identifier ('extends' typeBoundNTM)?
+typeParameterForNonTestMethod
+:   Identifier ('extends' typeBoundForNonTestMethod)?
 ;
 
-typeBoundNTM
+typeBoundForNonTestMethod
 :   type ('&' type)*
 ;
 
-fieldDeclarationNTM
-:   type variableDeclaratorsNTM ';'
+fieldDeclarationForNonTestMethod
+:   type variableDeclaratorsForNonTestMethod ';'
 ;
 
-variableDeclaratorsNTM
-:   variableDeclaratorNTM (',' variableDeclaratorNTM)*
+variableDeclaratorsForNonTestMethod
+:   variableDeclaratorForNonTestMethod (',' variableDeclaratorForNonTestMethod)*
 ;
 
-variableDeclaratorNTM
-:   variableDeclaratorIdNTM ('=' variableInitializerNTM)?
+variableDeclaratorForNonTestMethod
+:   variableDeclaratorIdForNonTestMethod ('=' variableInitializerForNonTestMethod)?
 ;
 
-variableDeclaratorIdNTM
+variableDeclaratorIdForNonTestMethod
 :  Identifier  ('[' ']')*
 ;
 
-innerCreatorNTM
-:   Identifier nonWildcardTypeArgumentsOrDiamondNTM? classCreatorRestNTM
+innerCreatorForNonTestMethod
+:   Identifier nonWildcardTypeArgumentsOrDiamondForNonTestMethod? classCreatorRestForNonTestMethod
 ;
 
-nonWildcardTypeArgumentsOrDiamondNTM
+nonWildcardTypeArgumentsOrDiamondForNonTestMethod
 :   '<' '>'
-|   nonWildcardTypeArgumentsNTM
+|   nonWildcardTypeArgumentsForNonTestMethod
 ;
 
-explicitGenericInvocationNTM
-:   nonWildcardTypeArgumentsNTM explicitGenericInvocationSuffixNTM
+explicitGenericInvocationForNonTestMethod
+:   nonWildcardTypeArgumentsForNonTestMethod explicitGenericInvocationSuffixForNonTestMethod
 ;
 
 
-elementValueArrayInitializerNTM
-:   '{' (elementValueNTM (',' elementValueNTM)*)? (',')? '}'
+elementValueArrayInitializerForNonTestMethod
+:   '{' (elementValueForNonTestMethod (',' elementValueForNonTestMethod)*)? (',')? '}'
 ;
 
-arrayInitializerNTM
-:   '{' (variableInitializerNTM (',' variableInitializerNTM)* (',')? )? '}'
+arrayInitializerForNonTestMethod
+:   '{' (variableInitializerForNonTestMethod (',' variableInitializerForNonTestMethod)* (',')? )? '}'
 ;
 
-variableInitializerNTM
-:   arrayInitializerNTM
-|   expressionNTM
+variableInitializerForNonTestMethod
+:   arrayInitializerForNonTestMethod
+|   expressionForNonTestMethod
 ;
 
-nonWildcardTypeArgumentsNTM
+nonWildcardTypeArgumentsForNonTestMethod
 :   '<' typeList '>'
 ;
 
@@ -421,32 +421,32 @@ typeList
 
 
 primary
-:   '(' expressionNTM ')'
+:   '(' expressionForNonTestMethod ')'
 |   'this'
 |   'super'
 |   literal
 |   Identifier
 |   type '.' 'class'
 |   'void' '.' 'class'
-|   nonWildcardTypeArgumentsNTM (explicitGenericInvocationSuffixNTM | 'this' argumentsNTM)
+|   nonWildcardTypeArgumentsForNonTestMethod (explicitGenericInvocationSuffixForNonTestMethod | 'this' argumentsForNonTestMethod)
 ;
 
-explicitGenericInvocationSuffixNTM
-:   'super' superSuffixNTM
-|   Identifier argumentsNTM
+explicitGenericInvocationSuffixForNonTestMethod
+:   'super' superSuffixForNonTestMethod
+|   Identifier argumentsForNonTestMethod
 ;
 
-superSuffixNTM
-:   argumentsNTM
-|   '.' Identifier argumentsNTM?
+superSuffixForNonTestMethod
+:   argumentsForNonTestMethod
+|   '.' Identifier argumentsForNonTestMethod?
 ;
 
-argumentsNTM
-:   '(' expressionListNTM? ')'
+argumentsForNonTestMethod
+:   '(' expressionListForNonTestMethod? ')'
 ;
 
-expressionListNTM
-:   expressionNTM(',' expressionNTM)*
+expressionListForNonTestMethod
+:   expressionForNonTestMethod(',' expressionForNonTestMethod)*
 ;
 
 primitiveType
