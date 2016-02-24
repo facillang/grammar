@@ -1,10 +1,44 @@
-test Employee{
-    getSalary(){    //test getSalary() method
+test Company {
 
-    }
+  getEmployee(String) { }   //test method
 
-    setSalary(double){  //test setSalary(double) method
+  Employee getEmployee(@PathVariable(name = "named") String named) {    //non test method
+        @MyAnnotation(
+            value="123",
+            name="john",
+            age=24,
+            newNames={"john", "Doe"}
+        ) Employee employeeName ;
 
-    }
+        Employee emp = new Employee("john Doe", 24, 70000);
+
+        emp = null;
+
+        int[] numArray = new int[1000];
+
+        for(int i = 0; i < 1000; i++){  //comment
+            numArray[i] = i;
+        }
+
+        /** local inner class not allowed yet
+        class Test {
+            public void testSomething(){
+
+            }
+        }
+        **/
+        Employee programmer = new Employee(){
+
+            @Override
+            public String getName(){
+                return "programmer:" + super.getName();
+            }
+        };
+        if(!programmer instanceof Employee){
+            throw new RuntimeException("not an instanceof Employee");
+        }
+        ArrayList<Employee> employees = new ArrayList<>();
+        return programmer;
+  }
 
 }
