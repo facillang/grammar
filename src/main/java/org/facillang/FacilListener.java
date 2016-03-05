@@ -97,6 +97,376 @@ public interface FacilListener extends ParseTreeListener {
 	 */
 	void exitBlockStatement(FacilParser.BlockStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link FacilParser#localVariableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalVariableDeclarationStatement(FacilParser.LocalVariableDeclarationStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#localVariableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalVariableDeclarationStatement(FacilParser.LocalVariableDeclarationStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#localVariableDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalVariableDeclaration(FacilParser.LocalVariableDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#localVariableDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalVariableDeclaration(FacilParser.LocalVariableDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableDeclarators}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarators(FacilParser.VariableDeclaratorsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableDeclarators}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarators(FacilParser.VariableDeclaratorsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableDeclarator}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarator(FacilParser.VariableDeclaratorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableDeclarator}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarator(FacilParser.VariableDeclaratorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#variableInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableInitializer(FacilParser.VariableInitializerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#variableInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableInitializer(FacilParser.VariableInitializerContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#arrayInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayInitializer(FacilParser.ArrayInitializerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#arrayInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayInitializer(FacilParser.ArrayInitializerContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression(FacilParser.ExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression(FacilParser.ExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#fieldName}.
+	 * @param ctx the parse tree
+	 */
+	void enterFieldName(FacilParser.FieldNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#fieldName}.
+	 * @param ctx the parse tree
+	 */
+	void exitFieldName(FacilParser.FieldNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#methodInvocationOnMock}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodInvocationOnMock(FacilParser.MethodInvocationOnMockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#methodInvocationOnMock}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodInvocationOnMock(FacilParser.MethodInvocationOnMockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#nonWildcardTypeArguments}.
+	 * @param ctx the parse tree
+	 */
+	void enterNonWildcardTypeArguments(FacilParser.NonWildcardTypeArgumentsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#nonWildcardTypeArguments}.
+	 * @param ctx the parse tree
+	 */
+	void exitNonWildcardTypeArguments(FacilParser.NonWildcardTypeArgumentsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#methodInvocationOnMockSuffix}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodInvocationOnMockSuffix(FacilParser.MethodInvocationOnMockSuffixContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#methodInvocationOnMockSuffix}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodInvocationOnMockSuffix(FacilParser.MethodInvocationOnMockSuffixContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#argumentsForTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgumentsForTestMethod(FacilParser.ArgumentsForTestMethodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#argumentsForTestMethod}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgumentsForTestMethod(FacilParser.ArgumentsForTestMethodContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#anyArgumentList}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnyArgumentList(FacilParser.AnyArgumentListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#anyArgumentList}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnyArgumentList(FacilParser.AnyArgumentListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#any}.
+	 * @param ctx the parse tree
+	 */
+	void enterAny(FacilParser.AnyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#any}.
+	 * @param ctx the parse tree
+	 */
+	void exitAny(FacilParser.AnyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#parenthesesForAny}.
+	 * @param ctx the parse tree
+	 */
+	void enterParenthesesForAny(FacilParser.ParenthesesForAnyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#parenthesesForAny}.
+	 * @param ctx the parse tree
+	 */
+	void exitParenthesesForAny(FacilParser.ParenthesesForAnyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#matchers}.
+	 * @param ctx the parse tree
+	 */
+	void enterMatchers(FacilParser.MatchersContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#matchers}.
+	 * @param ctx the parse tree
+	 */
+	void exitMatchers(FacilParser.MatchersContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#parenthesesForMatchers}.
+	 * @param ctx the parse tree
+	 */
+	void enterParenthesesForMatchers(FacilParser.ParenthesesForMatchersContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#parenthesesForMatchers}.
+	 * @param ctx the parse tree
+	 */
+	void exitParenthesesForMatchers(FacilParser.ParenthesesForMatchersContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#parExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterParExpression(FacilParser.ParExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#parExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitParExpression(FacilParser.ParExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#expressionForMatcher}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionForMatcher(FacilParser.ExpressionForMatcherContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#expressionForMatcher}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionForMatcher(FacilParser.ExpressionForMatcherContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#primaryForMatcher}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimaryForMatcher(FacilParser.PrimaryForMatcherContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#primaryForMatcher}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimaryForMatcher(FacilParser.PrimaryForMatcherContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#argExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgExpression(FacilParser.ArgExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#argExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgExpression(FacilParser.ArgExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#argEvaluator}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgEvaluator(FacilParser.ArgEvaluatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#argEvaluator}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgEvaluator(FacilParser.ArgEvaluatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#compareWithLeftExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterCompareWithLeftExpression(FacilParser.CompareWithLeftExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#compareWithLeftExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitCompareWithLeftExpression(FacilParser.CompareWithLeftExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#compareWithRightExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterCompareWithRightExpression(FacilParser.CompareWithRightExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#compareWithRightExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitCompareWithRightExpression(FacilParser.CompareWithRightExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#methodInvocation}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodInvocation(FacilParser.MethodInvocationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#methodInvocation}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodInvocation(FacilParser.MethodInvocationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#creator}.
+	 * @param ctx the parse tree
+	 */
+	void enterCreator(FacilParser.CreatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#creator}.
+	 * @param ctx the parse tree
+	 */
+	void exitCreator(FacilParser.CreatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#createdName}.
+	 * @param ctx the parse tree
+	 */
+	void enterCreatedName(FacilParser.CreatedNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#createdName}.
+	 * @param ctx the parse tree
+	 */
+	void exitCreatedName(FacilParser.CreatedNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#arrayCreatorRest}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayCreatorRest(FacilParser.ArrayCreatorRestContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#arrayCreatorRest}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayCreatorRest(FacilParser.ArrayCreatorRestContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#typeArgumentsOrDiamond}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeArgumentsOrDiamond(FacilParser.TypeArgumentsOrDiamondContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#typeArgumentsOrDiamond}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeArgumentsOrDiamond(FacilParser.TypeArgumentsOrDiamondContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#classCreatorRest}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassCreatorRest(FacilParser.ClassCreatorRestContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#classCreatorRest}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassCreatorRest(FacilParser.ClassCreatorRestContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void enterArguments(FacilParser.ArgumentsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void exitArguments(FacilParser.ArgumentsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#expressionList}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionList(FacilParser.ExpressionListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#expressionList}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionList(FacilParser.ExpressionListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatement(FacilParser.StatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatement(FacilParser.StatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#statementExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterStatementExpression(FacilParser.StatementExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#statementExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitStatementExpression(FacilParser.StatementExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#primaryForArg}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimaryForArg(FacilParser.PrimaryForArgContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#primaryForArg}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimaryForArg(FacilParser.PrimaryForArgContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#primary}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimary(FacilParser.PrimaryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#primary}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimary(FacilParser.PrimaryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#mock}.
+	 * @param ctx the parse tree
+	 */
+	void enterMock(FacilParser.MockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#mock}.
+	 * @param ctx the parse tree
+	 */
+	void exitMock(FacilParser.MockContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link FacilParser#formalParameters}.
 	 * @param ctx the parse tree
 	 */
@@ -797,15 +1167,15 @@ public interface FacilListener extends ParseTreeListener {
 	 */
 	void exitTypeList(FacilParser.TypeListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FacilParser#primary}.
+	 * Enter a parse tree produced by {@link FacilParser#primaryForNonTestMethod}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimary(FacilParser.PrimaryContext ctx);
+	void enterPrimaryForNonTestMethod(FacilParser.PrimaryForNonTestMethodContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link FacilParser#primary}.
+	 * Exit a parse tree produced by {@link FacilParser#primaryForNonTestMethod}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimary(FacilParser.PrimaryContext ctx);
+	void exitPrimaryForNonTestMethod(FacilParser.PrimaryForNonTestMethodContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link FacilParser#explicitGenericInvocationSuffixForNonTestMethod}.
 	 * @param ctx the parse tree

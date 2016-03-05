@@ -1,6 +1,43 @@
 test Company {
 
-  getEmployee(String) { }   //test method
+  getEmployee(String) {
+      Company company = new Company();
+      company.formatName(match(5 == arg.some() && arg.length == 1), match(arg.length != 2)) = "Result";
+
+      company.<String, String>formatName(match(5 == arg.some() && arg.length == 1).and(arg.someFunction()).or(arg.x() || arg.y())
+                          , match(arg.length != 2)) = "Result";
+
+      company.formatName((match(arg.length == arg.length())), match(arg.length != 2)) = "Result";
+      company.formatName(("ss"));
+      company.formatName(match(arg.equals("Foo") || arg.equals("Bar")), (any)) = "Result";
+
+      company.formatName(match(arg.s == arg.isSomething() && (arg.something || arg.booleanField)) , any) = "bar";
+      company.formatName(any, ((any))) = "Foo";
+      String foo = "Foo";
+      String bar = "Bar";
+      company.formatName(foo, any) = "Foo";
+
+      company.formatName(any, bar) = "Result";
+      company.formatName(foo, bar) = "Result";
+
+      Company<Software> softwareCompany = new Company<>();
+      Company<Software> softwareCompany2 = new Company<Software>();
+      company.<Company>formatName() = "Foo";
+      Company company = new Company();
+      Company comp = mock();
+      Company comp2 = mock(StartUp);
+      Company comp3;
+      comp3 = new Company();
+      comp3 = mock();
+      comp3 = mock(StartUp);
+
+      comp3.getName() = "Foo";
+
+      String foo = "Brian";
+      company.methodName() = foo;
+      company.name = foo;
+
+    }   //test method
 
   Employee getEmployee(@PathVariable(name = "named") String named) {    //non test method
         @MyAnnotation(
