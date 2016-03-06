@@ -70,6 +70,8 @@ expression
 |   mock
 |   expression '.' methodInvocationOnMock
 |   expression '.' fieldName
+|   expression '(' expressionList? ')'
+|   expression ('<=' | '>=' | '>' | '<') expression
 |   <assoc=right> expression
      (   '='
         |   '+='
@@ -122,7 +124,7 @@ parenthesesForAny
 : '(' any ')'
 ;
 
-matchers                // accepts only 'arg' as it always represents the argument being matched
+matchers
 :   parenthesesForMatchers
 |   'match' parExpression (('.' 'and' parExpression) | ('.' 'or' parExpression))*
 ;
@@ -139,12 +141,15 @@ expressionForMatcher
 :   primaryForMatcher
 |   expressionForMatcher '&&' expressionForMatcher
 |   expressionForMatcher '||' expressionForMatcher
+|   expression
 ;
 
 
 primaryForMatcher
 :   '(' expressionForMatcher ')'
 |   argExpression
+|   Identifier
+|   literal
 ;
 
 argExpression                   //TODO find a better way
@@ -155,14 +160,15 @@ argExpression                   //TODO find a better way
 argEvaluator
 :   'arg' '.' methodInvocation
 |   'arg' '.' fieldName
+|   'arg'
 ;
 
 compareWithLeftExpression
-:   ('<=' | '>=' | '>' | '<' | '==' | '!=' ) (primaryForArg  | argEvaluator)
+:   ('<=' | '>=' | '>' | '<' | '==' | '!=' ) (expression  | argEvaluator)
 ;
 
 compareWithRightExpression
-:   (primaryForArg  | argEvaluator) ('<=' | '>=' | '>' | '<' | '==' | '!=' )
+:   (expression | argEvaluator) ('<=' | '>=' | '>' | '<' | '==' | '!=' )
 ;
 
 methodInvocation
@@ -210,11 +216,6 @@ statement
 
 statementExpression
 :   expression
-;
-
-primaryForArg
-:   literal
-|   Identifier
 ;
 
 primary

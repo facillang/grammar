@@ -531,18 +531,6 @@ public class FacilBaseListener implements FacilListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrimaryForArg(FacilParser.PrimaryForArgContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPrimaryForArg(FacilParser.PrimaryForArgContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterPrimary(FacilParser.PrimaryContext ctx) { }
 	/**
 	 * {@inheritDoc}
