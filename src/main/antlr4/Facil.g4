@@ -34,7 +34,202 @@ block
 ;
 
 blockStatement
-:   ';'                             //will get bigger here(for test methods)
+:   localVariableDeclarationStatement
+|   statement
+;
+
+localVariableDeclarationStatement
+:   localVariableDeclaration ';'
+;
+
+localVariableDeclaration
+:   type variableDeclarators
+;
+
+variableDeclarators
+:   variableDeclarator (',' variableDeclarator)*
+;
+
+variableDeclarator
+:   variableDeclaratorId ('=' variableInitializer)?
+;
+
+variableInitializer
+:   arrayInitializer
+|   expression
+;
+
+arrayInitializer
+:   '{' (variableInitializer (',' variableInitializer)* (',')? )? '}'
+;
+
+expression
+:   primary
+|   expression '[' expression ']'
+|   'new' creator
+|   mock
+|   expression '.' methodInvocationOnMock
+|   expression '.' fieldName
+|   <assoc=right> expression
+     (   '='
+        |   '+='
+        |   '-='
+        |   '*='
+        |   '/='
+        |   '&='
+        |   '|='
+        |   '^='
+        |   '>>='
+        |   '>>>='
+        |   '<<='
+        |   '%='
+     )
+     expression
+
+;
+
+fieldName
+:   Identifier                      // to assign a value to mock's field, so that whenever the field is used the assigned
+;                                    // values gets used
+
+methodInvocationOnMock
+:   nonWildcardTypeArguments? methodInvocationOnMockSuffix
+;
+
+nonWildcardTypeArguments
+:   '<' typeList '>'
+;
+
+methodInvocationOnMockSuffix           //If parse tree goes here that means, a value is being assigned to return when method is
+:   Identifier argumentsForTestMethod     // invoked on a mock
+//|   Identifier arguments
+;
+
+argumentsForTestMethod
+:   '(' anyArgumentList? ')'
+;
+
+anyArgumentList
+:   (any | expression | matchers) (',' (any | expression | matchers) )*
+;
+
+any
+:   parenthesesForAny
+|   'any'
+;
+
+parenthesesForAny
+: '(' any ')'
+;
+
+matchers                // accepts only 'arg' as it always represents the argument being matched
+:   parenthesesForMatchers
+|   'match' parExpression (('.' 'and' parExpression) | ('.' 'or' parExpression))*
+;
+
+parenthesesForMatchers
+:   '(' matchers ')'
+;
+
+parExpression
+:   '(' expressionForMatcher ')'
+;
+
+expressionForMatcher
+:   primaryForMatcher
+|   expressionForMatcher '&&' expressionForMatcher
+|   expressionForMatcher '||' expressionForMatcher
+;
+
+
+primaryForMatcher
+:   '(' expressionForMatcher ')'
+|   argExpression
+;
+
+argExpression                   //TODO find a better way
+:   argEvaluator compareWithLeftExpression?
+|   compareWithRightExpression? argEvaluator
+;
+
+argEvaluator
+:   'arg' '.' methodInvocation
+|   'arg' '.' fieldName
+;
+
+compareWithLeftExpression
+:   ('<=' | '>=' | '>' | '<' | '==' | '!=' ) (primaryForArg  | argEvaluator)
+;
+
+compareWithRightExpression
+:   (primaryForArg  | argEvaluator) ('<=' | '>=' | '>' | '<' | '==' | '!=' )
+;
+
+methodInvocation
+:   Identifier arguments
+;
+
+creator
+:   createdName classCreatorRest
+|   createdName (arrayCreatorRest | classCreatorRest)
+;
+
+createdName
+:   Identifier typeArgumentsOrDiamond? ('.' Identifier typeArgumentsOrDiamond?)*
+|   primitiveType
+;
+
+arrayCreatorRest
+:   '['
+     (   ']' ('[' ']')* arrayInitializer
+        |   expression ']' ('[' expression ']')* ('[' ']')*
+     )
+;
+
+typeArgumentsOrDiamond
+:   '<' '>'
+|   typeArguments
+;
+
+classCreatorRest
+:   arguments
+;
+
+
+arguments
+:   '(' expressionList? ')'
+;
+
+expressionList
+:   expression(',' expression)*
+;
+
+statement
+:   statementExpression ';'
+;
+
+statementExpression
+:   expression
+;
+
+primaryForArg
+:   literal
+|   Identifier
+;
+
+primary
+:   '(' expression ')'
+|   literal
+|   Identifier
+                            //TODO |   type '.' 'class'
+                            //TODO  |   'void' '.' 'class'
+                            //TODO  |   nonWildcardTypeArgumentsForNonTestMethod
+                            //TODO (explicitGenericInvocationSuffixForNonTestMethod | 'this' argumentsForNonTestMethod)
+;
+
+mock
+:   'mock()'
+|   'mock(' type ')'
 ;
 
 formalParameters
@@ -136,7 +331,7 @@ elementValueForNonTestMethod
 ;
 
 expressionForNonTestMethod
-:   primary
+:   primaryForNonTestMethod
 |   expressionForNonTestMethod '.' Identifier
 |   expressionForNonTestMethod '.' 'this'
 |   expressionForNonTestMethod '.' 'new' nonWildcardTypeArgumentsForNonTestMethod? innerCreatorForNonTestMethod
@@ -420,7 +615,7 @@ typeList
 ;
 
 
-primary
+primaryForNonTestMethod
 :   '(' expressionForNonTestMethod ')'
 |   'this'
 |   'super'
