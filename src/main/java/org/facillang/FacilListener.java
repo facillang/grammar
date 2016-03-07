@@ -437,16 +437,6 @@ public interface FacilListener extends ParseTreeListener {
 	 */
 	void exitStatementExpression(FacilParser.StatementExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link FacilParser#primaryForArg}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrimaryForArg(FacilParser.PrimaryForArgContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link FacilParser#primaryForArg}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrimaryForArg(FacilParser.PrimaryForArgContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link FacilParser#primary}.
 	 * @param ctx the parse tree
 	 */
