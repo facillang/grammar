@@ -71,7 +71,7 @@ expression
 |   expression '.' methodInvocationOnMock
 |   expression '.' fieldName
 |   expression '(' expressionList? ')'
-|   expression ('<=' | '>=' | '>' | '<') expression
+|   expression ('<=' | '>=' | '>' | '<' | '==' | '!=') expression
 |   <assoc=right> expression
      (   '='
         |   '+='
