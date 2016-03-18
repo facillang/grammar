@@ -6,6 +6,7 @@ test Company {
         String foo = "Foo";
         String value = "value";
         Holder holder = getHolder();
+        manager.getFormalName(foo, match(employee)) throws Exception;
         manager.getFormalName(foo, match(employee)) = "Foo";
         manager.getFormalName(foo, match(arg == 1)) = "Foo";
         manager.getFormalName(match(foo).and("bar").or((arg)), any);
@@ -17,6 +18,7 @@ test Company {
         manager.getFormalName(foo, match(false || arg.something(testMethod()))) = "Foo";
         //
         Company company = new Company();
+        company.formatName(match(foo).and(bar), any) throws IllegalArgumentException;
         company.formatName(match(foo).and(bar), any) = "Result";
         company.formatName(match(foo).or(bar), any) = "Result";
         company.formatName(match(foo), any) = "Result";
