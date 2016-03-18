@@ -24,6 +24,10 @@ test Company {
         company.formatName(match(arg.length >= value.length),any) = "Result";
         company.formatName(match(value.length >= value.length),any) = "Result";
         company.formatName(match(value.length >= arg.length),any) = "Result";
+        company.formatName(match(foo.length == 1)) = "Result";
+        company.formatName(match(foo.length != 1)) = "Result";
+        company.formatName(match(foo.length != arg.length)) = "Result";
+        company.formatName(match(value.length() >= arg.length()),any) =
         company.formatName(match(5 == arg.some() && arg.length == 1), match(arg.length != 2)) = "Result";
 
         company.<String, String>formatName(match(5 == arg.some() && arg.length == 1).and(arg.someFunction()).or(arg.x() || arg.y())
