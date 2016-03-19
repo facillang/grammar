@@ -69,6 +69,7 @@ expression
 |   'new' creator
 |   mock
 |   expression '.' methodInvocationOnMock
+|   expression '.' methodInvocationOnMock 'throws' type
 |   expression '.' fieldName
 |   expression '(' expressionList? ')'
 |   expression ('<=' | '>=' | '>' | '<' | '==' | '!=') expression
