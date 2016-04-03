@@ -3,6 +3,20 @@ test Company {
     getEmployee(String) {
         Manager manager = mock();
         Employee employee = mock(Programmer);
+        manager.someMethod(employee) = arg1, arg2 {
+            arg1 = new Arg1();
+            return new Manager();
+        };
+        manager.something() = arg1 {
+            arg1 = new Arg1();
+            return new Manager();
+        };
+
+        manager.setManager(any, match(arg == 1)) =  {
+            String foo = "Foo";
+            String value = "value";
+        };
+
         String foo = "Foo";
         String value = "value";
         Holder holder = getHolder();
@@ -23,13 +37,13 @@ test Company {
         company.formatName(match(foo).or(bar), any) = "Result";
         company.formatName(match(foo), any) = "Result";
         company.formatName(match(arg.length() == value.length()),any) = "Result";
-        company.formatName(match(arg.length >= value.length),any) = "Result";
-        company.formatName(match(value.length >= value.length),any) = "Result";
-        company.formatName(match(value.length >= arg.length),any) = "Result";
+        company.formatName(match(arg.length() >= value.length()),any) = "Result";
+        company.formatName(match(value.length() >= value.length),any) = "Result";
         company.formatName(match(foo.length == 1)) = "Result";
         company.formatName(match(foo.length != 1)) = "Result";
+        company.formatName(match(1 == foo.length())) = "Result";
         company.formatName(match(foo.length != arg.length)) = "Result";
-        company.formatName(match(value.length() >= arg.length()),any) =
+        company.formatName(match(value.length() >= arg.length()),any) = "Result";
         company.formatName(match(5 == arg.some() && arg.length == 1), match(arg.length != 2)) = "Result";
 
         company.<String, String>formatName(match(5 == arg.some() && arg.length == 1).and(arg.someFunction()).or(arg.x() || arg.y())
