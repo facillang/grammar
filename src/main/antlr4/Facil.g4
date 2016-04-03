@@ -70,6 +70,7 @@ expression
 |   mock
 |   expression '.' methodInvocationOnMock
 |   expression '.' methodInvocationOnMock 'throws' type
+|   expression '.' methodInvocationOnMock '=' customCodeForMethod
 |   expression '.' fieldName
 |   expression '(' expressionList? ')'
 |   expression ('<=' | '>=' | '>' | '<' | '==' | '!=') expression
@@ -89,6 +90,10 @@ expression
      )
      expression
 
+;
+
+customCodeForMethod
+: (Identifier (',' Identifier)*)? methodBodyForNonTestMethod
 ;
 
 fieldName
