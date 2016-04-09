@@ -274,7 +274,7 @@ ensureBlockForException
 ;
 
 ensureBlock
-:   '{' ensureBlockStatements* '}'        //TODO
+:   '{' ensureBlockStatements* '}'
 ;
 
 ensureBlockStatements
@@ -317,7 +317,7 @@ mapArgumentToResult
 ;
 
 argumentToResults
-:   '(' argumentToResult? ')'
+:   '(' argumentToResult ')'
 ;
 
 argumentToResult
