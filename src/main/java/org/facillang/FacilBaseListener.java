@@ -207,6 +207,18 @@ public class FacilBaseListener implements FacilListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCustomCodeForMethod(FacilParser.CustomCodeForMethodContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCustomCodeForMethod(FacilParser.CustomCodeForMethodContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFieldName(FacilParser.FieldNameContext ctx) { }
 	/**
 	 * {@inheritDoc}

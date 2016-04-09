@@ -167,6 +167,16 @@ public interface FacilListener extends ParseTreeListener {
 	 */
 	void exitExpression(FacilParser.ExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link FacilParser#customCodeForMethod}.
+	 * @param ctx the parse tree
+	 */
+	void enterCustomCodeForMethod(FacilParser.CustomCodeForMethodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#customCodeForMethod}.
+	 * @param ctx the parse tree
+	 */
+	void exitCustomCodeForMethod(FacilParser.CustomCodeForMethodContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link FacilParser#fieldName}.
 	 * @param ctx the parse tree
 	 */
