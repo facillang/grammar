@@ -96,6 +96,7 @@ customCodeForMethod
 : (Identifier (',' Identifier)*)? methodBodyForNonTestMethod
 ;
 
+
 fieldName
 :   Identifier                      // to assign a value to mock's field, so that whenever the field is used the assigned
 ;                                    // values gets used
@@ -222,6 +223,122 @@ statement
 
 statementExpression
 :   expression
+|   ensure
+;
+
+
+ensure
+: 'ensure' ( Identifier.methodInvocationOnMockForEnsureWithMappedResults
+| (((Identifier.methodInvocationOnMockForEnsure | Identifier.fieldName ) verifications) | Identifier verifyValue))
+;
+
+verifications
+:   throwsException
+|   verifyInvocation
+|   verifyValue
+;
+
+verifyValue
+:   '=' assign
+|   '=' matchers
+|   verifyType
+;
+
+assign
+:   (value | ensureBlockForResult)
+;
+
+throwsException
+:   'throws' type ensureBlockForException?
+;
+
+verifyInvocation
+:   'invoked' primary       //during compilation make sure that primary in only an integer
+;
+
+verifyType
+:   'isA' type
+;
+
+value
+:   literal
+|   Identifier
+;
+
+ensureBlockForResult
+:  Identifier ensureBlock
+;
+
+ensureBlockForException
+:   Identifier ensureBlock
+;
+
+ensureBlock
+:   '{' ensureBlockStatements* '}'        //TODO
+;
+
+ensureBlockStatements
+:   ensure ';'
+|   blockStatement
+;
+
+methodInvocationOnMockForEnsure
+:   nonWildcardTypeArguments? methodInvocationOnMockSuffixForEnsure
+;
+
+methodInvocationOnMockSuffixForEnsure
+:   Identifier argumentsForEnsure
+;
+
+argumentsForEnsure
+:   '(' anyArgumentListEnsure? ')'
+;
+
+
+anyArgumentListEnsure
+: anyNull | ((any | expression | matchers) (',' (any | expression | matchers))*)
+;
+
+methodInvocationOnMockForEnsureWithMappedResults
+:   nonWildcardTypeArguments? methodInvocationOnMockSuffixForEnsureWithMappedResults
+;
+
+methodInvocationOnMockSuffixForEnsureWithMappedResults
+:   Identifier argumentsForEnsureWithMappedResults
+;
+
+argumentsForEnsureWithMappedResults
+:   '(' mapArgumentToResult ')'
+;
+
+mapArgumentToResult
+:   parenthesesMapArgumentToResult
+|   'map' argumentToResults
+;
+
+argumentToResults
+:   '(' argumentToResult? ')'
+;
+
+argumentToResult
+:   argToRes (',' argToRes)*
+;
+
+argToRes
+:  expression '->' expression
+;
+
+parenthesesMapArgumentToResult
+:   '(' mapArgumentToResult ')'
+;
+
+anyNull
+:   parenthesesForAnyNull
+|   'anyNull'
+;
+
+parenthesesForAnyNull
+: '(' anyNull ')'
 ;
 
 primary
@@ -319,8 +436,8 @@ annotationForNonTestMethod
 :   '@' annotationNameForNonTestMethod ( '(' ( elementValuePairsForNonTestMethod | elementValueForNonTestMethod )? ')' )?
 ;
 
-annotationNameForNonTestMethod:
-   qualifiedName
+annotationNameForNonTestMethod
+:   qualifiedName
 ;
 
 elementValuePairsForNonTestMethod
