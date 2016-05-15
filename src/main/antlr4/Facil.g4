@@ -1,7 +1,15 @@
 grammar Facil;
 
 facilCompilation
-:   testClassDeclaration* EOF;
+:   packageDeclaration? importDeclaration*  testClassDeclaration* EOF;
+
+packageDeclaration
+:   'package' qualifiedName ';'
+;
+
+importDeclaration
+:   'import' 'static'? qualifiedName ('.' '*')? ';'
+;
 
 testClassDeclaration
 :   'test' Identifier classBody;

@@ -1,3 +1,4 @@
+// Generated from /Users/sumanthdommaraju/Desktop/facil/facilGrammar/NEW/Facil/src/main/antlr4/Facil.g4 by ANTLR 4.5.1
 package org.facillang;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -22,6 +23,30 @@ public class FacilBaseListener implements FacilListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFacilCompilation(FacilParser.FacilCompilationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPackageDeclaration(FacilParser.PackageDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPackageDeclaration(FacilParser.PackageDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterImportDeclaration(FacilParser.ImportDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitImportDeclaration(FacilParser.ImportDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

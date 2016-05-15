@@ -1,3 +1,4 @@
+// Generated from /Users/sumanthdommaraju/Desktop/facil/facilGrammar/NEW/Facil/src/main/antlr4/Facil.g4 by ANTLR 4.5.1
 package org.facillang;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -16,6 +17,26 @@ public interface FacilListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFacilCompilation(FacilParser.FacilCompilationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#packageDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterPackageDeclaration(FacilParser.PackageDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#packageDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitPackageDeclaration(FacilParser.PackageDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#importDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterImportDeclaration(FacilParser.ImportDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#importDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitImportDeclaration(FacilParser.ImportDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link FacilParser#testClassDeclaration}.
 	 * @param ctx the parse tree

@@ -1,129 +1,223 @@
+package com.company;
+
+import a.b.c;
+import c.de.f.s.a;
+import static x.w.p;
+
 test Company {
 
+        mockingMethods() {
+            ClassObject dependencyOfTesting; // TODO
+            MockingMethodsExamples testing; // TODO
+            // mock a method (any access modifier; public/protected/default/private) w/ no args
+            testing.methodName() = "return value"; // object.method = the return value; compiler complains if of wrong type
+
+            // mock a method w/ an arg, no preference for matching the arg
+            testing.methodName1(any) = 1L;
+
+            // mock a method w/ multiple args, no preference for matching the args
+            dependencyOfTesting.methodName2(any, any, any) = testing; // method returns type ClassObject, returning 'testing' object in this mock
+
+            // mock a method w/ arg match equals
+            String matchx = "hello";
+            testing.methodName3(matchx) = "result";
+
+            // mock a method w/ arg matching a complicated match
+            // note, 'match' is like 'argThat' in Mockito
+            // 'arg' is the actual argument at the given 'match' position in the real method, it is typed correctly
+            // 'match' returns itself to chain multiple matches together, if desired (and by default)
+            // any chaining, though, could be done in a nested fashion (like last example in this block of code)
+            testing.methodName3(match(arg.length == 3)) = "foo";
+            testing.methodName3(match(arg.length == 3).and(arg.charAt(0) == 'h')) = "foo1";
+            testing.methodName3(match(arg.length == 3).or(arg.charAt(0) == 'h')) = "foo2";
+            testing.methodName3(match((((arg.length == 3) || (arg.charAt(0) == 'h')) && (arg.charAt(1) == 'f')))) = "foo3"; //missing bracket
+
+            // mock a method like above but with mult. args
+             testing.methodName4(match(arg.length == 3), match(arg == 1L)) = "bar";
+
+             // mock a method to throw an exception
+             testing.methodName5() throws RuntimeException;
+
+             // mock a method throwing a checked exception, note, do not need to mark your test method as throwing this
+             testing.methodName6() throws IOException;
+
+             // more complicated mock, where you want some custom code to run (perhaps allowing you to invoke methods on other mock objects)
+             testing.methodName7() = {
+               // TODO - whatever you want (this is like a Runnable object here without the boiler-plate code)
+             };
+
+             // same as above but with arguments, these can be captured and used in the block of code
+             testing.methodName7(any) = arg2 {
+               // TODO - whatever, 'arg' is typed correctly and in scope within this block of code, programmer can name 'arg' anything
+             }; //missing semicolon
+             testing.methodName8(any, any) = arg1, arg2 {
+               // TODO - like above but with two args
+             };
+         }
+
     getEmployee(String) {
-            int i = 10;
-            ensure testing.methodName(map(null -> 0, Integer.MIN_VALUE -> 1, 0 -> 2, Integer.MAX_VALUE -> 3));
-            ensure testing.meaningfulPublicApi() throws RuntimeException;
-            ensure testing.methodName(map(getNumber() -> 0, Integer.MIN_VALUE -> 1, 0 -> 2, count -> 3, foo.getSomeNumber()-> new Integer(12)));
-            ensure testing.doTheGamble(any, any) invoked 9;
-            ensure re.getCause() isA IOException;
-            ensure testing.methodName(anyNull) = 0;
-            ensure foo.length() = match(arg > 0 && arg == 1);
-            ensure foo.something(foo.bar) = match(arg > 0 && arg == 1);
+        int i = 10;
+        ensure testing.methodName(map(null -> 0, Integer.MIN_VALUE -> 1, 0 -> 2, Integer.MAX_VALUE -> 3));
+        ensure testing.meaningfulPublicApi() throws RuntimeException;
+        ensure testing.meaningfulPublicApi() = 10;
+       // ensure testing.meaningfulPublicApi(map());
+        ensure testing.methodName(map(getNumber() -> 0, Integer.MIN_VALUE -> 1, 0 -> 2, count -> 3, foo.getSomeNumber()-> new Integer(12)));
+        ensure testing.doTheGamble(any, any) invoked 9;
+        ensure re.getCause() isA IOException;
+        ensure testing.methodName(anyNull) = 0;
+        ensure foo.length() = match(arg > 0 && arg == 1);
+        ensure foo.something(foo.bar) = match(arg > 0 && arg == 1);
+        ensure foo isA IOException;
+        ensure foo = match(arg > 0 && arg == 1);
+        ensure bar = result {
+            someMethod();
+            ensure testing.doTheGamble(any, any) invoked 1;
+        };
+
+        ensure testing.meaningfulPublicApi() throws RuntimeException re {
+            ensure testing.doTheGamble(any, any) invoked 1;
             ensure foo isA IOException;
-            ensure foo = match(arg > 0 && arg == 1);
-            ensure bar = result {
-                someMethod();
-                ensure testing.doTheGamble(any, any) invoked 1;
-            };
+            ensure myResult.getFirstName = "Brian";
+            ensure myResult.getLastName = "Langel";
+        };
 
-            ensure testing.meaningfulPublicApi() throws RuntimeException re {
-                ensure testing.doTheGamble(any, any) invoked 1;
-                ensure myResult.getFirstName = "Brian";
-                ensure myResult.getLastName = "Langel";
-            };
-
-            ensure testing.meaningfulPublicApi() = myResult {
-                someMethod();
-                ensure testing.doTheGamble(any, any) invoked 1;
-                ensure testing.doTheGamble(any, any) invoked 1;
-                ensure myResult.getFirstName = "Brian";
-                ensure myResult.getLastName = "Langel";
-                // at end of block 'verifyNoMoreInteractions' and 'reset' are invoked
-                ensure myResult = 12;
-                ensure foo.length() = match(arg > 0 && arg == 1);
-                String foo = "Foo";
-                String value = "value";
-                Holder holder = getHolder();
-                manager.getFormalName(foo, match(employee)) throws Exception;
-                manager.getFormalName(foo, match(employee)) = "Foo";
-                manager.getFormalName(foo, match(arg == 1)) = "Foo";
-            };
-
-            Manager manager = mock();
-            Employee employee = mock(Programmer);
-            manager.someMethod(employee) = arg1, arg2 {
-                arg1 = new Arg1();
-                return new Manager();
-            };
-            manager.something() = arg1 {
-                arg1 = new Arg1();
-                return new Manager();
-            };
-
-            manager.setManager(any, match(arg == 1)) =  {
-                String foo = "Foo";
-                String value = "value";
-            };
-
+        ensure testing.meaningfulPublicApi() = myResult {
+            someMethod();
+            ensure testing.doTheGamble(any, any) invoked 1;
+            ensure testing.doTheGamble(any, any) invoked 1;
+            ensure myResult.getFirstName = "Brian";
+            ensure myResult.getLastName = "Langel";
+            // at end of block 'verifyNoMoreInteractions' and 'reset' are invoked
+            ensure myResult = 12;
+            ensure foo.length() = match(arg > 0 && arg == 1);
             String foo = "Foo";
             String value = "value";
             Holder holder = getHolder();
             manager.getFormalName(foo, match(employee)) throws Exception;
             manager.getFormalName(foo, match(employee)) = "Foo";
             manager.getFormalName(foo, match(arg == 1)) = "Foo";
-            manager.getFormalName(match(foo).and("bar").or((arg)), any);
-            manager.getFormalName(foo, match(arg.getNumber() || 1)) = "Foo";
-            manager.getFormalName(foo, match(holder.getObject())) = "Foo";
-            manager.getFormalName(foo, match(holder.object)) = "Foo";
-            manager.getFormalName(foo, match(arg.getNumber() || value.getLength())) = "Foo";
-            manager.getFormalName(foo, match(false)) = "Foo";
-            manager.getFormalName(foo, match(false || arg.something(testMethod()))) = "Foo";
-            //
-            Company company = new Company();
-            company.formatName(match(foo).and(bar), any) throws IllegalArgumentException;
-            company.formatName(match(foo).and(bar), any) = "Result";
-            company.formatName(match(foo).or(bar), any) = "Result";
-            company.formatName(match(foo), any) = "Result";
-            company.formatName(match(arg.length() == value.length()),any) = "Result";
-            company.formatName(match(arg.length() >= value.length()),any) = "Result";
-            company.formatName(match(value.length() >= value.length),any) = "Result";
-            company.formatName(match(foo.length == 1)) = "Result";
-            company.formatName(match(foo.length != 1)) = "Result";
-            company.formatName(match(1 == foo.length())) = "Result";
-            company.formatName(match(foo.length != arg.length)) = "Result";
-            company.formatName(match(value.length() >= arg.length()),any) = "Result";
-            company.formatName(match(5 == arg.some() && arg.length == 1), match(arg.length != 2)) = "Result";
+        };
 
-            company.<String, String>formatName(match(5 == arg.some() && arg.length == 1).and(arg.someFunction()).or(arg.x() || arg.y())
-                            , match(arg.length != 2)) = "Result";
+        Manager manager = mock();
+        Employee employee = mock(Programmer);
+        manager.someMethod(employee) = arg1, arg2 {
+            arg1 = new Arg1();
+            return new Manager();
+        };
+        manager.something(any) = arg2 {
 
-            company.formatName((match(arg.length == arg.length())), match(arg.length != 2)) = "Result";
-            company.formatName(("ss"));
-            company.formatName(match(arg.equals("Foo") || arg.equals("Bar")), (any)) = "Result";
-            comapny.formatName(any);
-            company.formatName(match(arg.s == arg.isSomething() && (arg.something || arg.booleanField)) , any) = "bar";
-            company.formatName(any, ((any))) = "Foo";
-            String bar = "Bar";
-            company.formatName(foo, any) = "Foo";
-            company.formatName(any, bar) = "Result";
-            company.formatName(foo, bar) = true;
+        };
 
-            Company<Software> softwareCompany = new Company<>();
-            Company<Software> softwareCompany2 = new Company<Software>();
-            company.<Company>formatName() = "Foo";
-            Company company = new Company();
-            Company comp = mock();
-            Company comp2 = mock(StartUp);
-            Company comp3;
-            comp3 = new Company();
-            comp3 = mock();
-            comp3 = mock(StartUp);
+        manager.setManager(any, match(arg == 1)) =  {
+            String foo = "Foo";
+            String value = "value";
+        };
 
-            comp3.getName() = "Foo";
+        String foo = "Foo";
+        String value = "value";
+        Holder holder = getHolder();
+        manager.getFormalName(foo, match(employee)) throws Exception;
+        manager.getFormalName(foo, match(employee)) = "Foo";
+        manager.getFormalName(foo, match(arg == 1)) = "Foo";
+        manager.getFormalName(match(foo).and("bar").or((arg)), any);
+        manager.getFormalName5(foo, match(arg.getNumber() || 1)) = "Foo";
+        manager.getFormalName(foo, match(holder.getObject())) = "Foo";
+        manager.getFormalName(foo, match(holder.object)) = "Foo";
+        manager.getFormalName(foo, match(arg.getNumber() || value.getLength())) = "Foo";
+        manager.getFormalName(foo, match(false)) = "Foo";
+        manager.getFormalName(foo, match(false || arg.something(testMethod()))) = "Foo";
+        //
+        Company company = new Company();
+        company.formatName(match(foo).and(bar), any) throws IllegalArgumentException;
+        company.formatName(match(foo).and(bar), any) = "Result";
+        company.formatName(match(foo).or(bar), any) = "Result";
+        company.formatName(match(foo), any) = "Result";
+        company.formatName(match(arg.length() == value.length()),any) = "Result";
+        company.formatName(match(arg.length() >= value.length()),any) = "Result";
+        company.formatName(match(value.length() >= value.length),any) = "Result";
+        company.formatName(match(foo.length == 1)) = "Result";
+        company.formatName(match(foo.length != 1)) = "Result";
+        company.formatName(match(1 == foo.length())) = "Result";
+        company.formatName(match(foo.length != arg.length)) = "Result";
+        company.formatName(match(value.length() >= arg.length()),any) = "Result";
+        company.formatName(match(5 == arg.some() && arg.length == 1), match(arg.length != 2)) = "Result";
 
-            String foo = "Brian";
-            company.methodName() = foo;
-            company.name = foo;
-        }   //test method
+        company.<String, String>formatName(match(5 == arg.some() && arg.length == 1).and(arg.someFunction()).or(arg.x() || arg.y())
+                        , match(arg.length != 2)) = "Result";
+
+        company.formatName((match(arg.length == arg.length())), match(arg.length != 2)) = "Result";
+        company.formatName(("ss"));
+        company.formatName(match(arg.equals("Foo") || arg.equals("Bar")), (any)) = "Result";
+        comapny.formatName(any);
+        company.formatName(match(arg.s == arg.isSomething() && (arg.something || arg.booleanField)) , any) = "bar";
+        company.formatName(any, ((any))) = "Foo";
+        String bar = "Bar";
+        company.formatName(foo, any) = "Foo";
+        company.formatName(any, bar) = "Result";
+        company.formatName(foo, bar) = true;
+
+        Company<Software> softwareCompany = new Company<>();
+        Company<Software> softwareCompany2 = new Company<Software>();
+        company.<Company>formatName() = "Foo";
+        Company company = new Company();
+        Company comp = mock();
+        Company comp2 = mock(StartUp);
+        Company comp3;
+        comp3 = new Company();
+        comp3 = mock();
+        comp3 = mock(StartUp);
+
+        comp3.getName() = "Foo";
+
+        String foo = "Brian";
+        company.methodName() = foo;
+        company.name = foo;
+    }   //test method
 
   Employee getEmployee(@PathVariable(name = "named") String named) {    //non test method
+         Holder holder = getHolder();
+            company.<Company>formatName() = "Foo";
+
+        if((true && (false)) || (true && false)){
+
+                }
+
+        if(y == x < 0){
+
+        }
+
+        if(something.get){
+
+        }
+
+        if(true){
+
+        }
+
+        if( something.get() == 1){
+
+        }
+
+        if( something.get() == 1 || something.get != 2){
+
+        }
+
+
+        if( something.get() && true){
+
+        }
+
+        company.methodName() = "Foo";
+
         @MyAnnotation(
             value="123",
             name="john",
             age=24,
             newNames={"john", "Doe"}
         ) Employee employeeName ;
+
+        Company comp;
+        comp = new Company();
 
         Employee emp = new Employee("john Doe", 24, 70000);
 
@@ -154,6 +248,36 @@ test Company {
         }
         ArrayList<Employee> employees = new ArrayList<>();
         return programmer;
+  }
+
+  void someMethod(){
+    try {
+    			if ( !quiet ) System.err.println(f);
+    			// Create a scanner that reads from the input stream passed to us
+    			Lexer lexer = new JavaLexer(new ANTLRFileStream(f));
+
+    			CommonTokenStream tokens = new CommonTokenStream(lexer);
+    			long start = System.currentTimeMillis();
+    			tokens.fill(); // load all and check time
+    			long stop = System.currentTimeMillis();
+    			lexerTime += stop-start;
+
+    			// Create a parser that reads from the scanner
+    			JavaParser parser = new JavaParser(tokens);
+    			if ( diag ) parser.addErrorListener(new DiagnosticErrorListener());
+    			if ( bail ) parser.setErrorHandler(new BailErrorStrategy());
+    			if ( SLL ) parser.getInterpreter().setPredictionMode(PredictionMode.SLL);
+
+    			// start parsing at the compilationUnit rule
+    			ParserRuleContext t = parser.compilationUnit();
+    			if ( notree ) parser.setBuildParseTree(false);
+    			if ( gui ) t.inspect(parser);
+    			if ( printTree ) System.out.println(t.toStringTree(parser));
+    		}
+    		catch (Exception e) {
+    			System.err.println("parser exception: "+e);
+    			e.printStackTrace();   // so we can get stack trace
+    		}
   }
 
 }
