@@ -1,82 +1,121 @@
 test Company {
 
     getEmployee(String) {
-        Manager manager = mock();
-        Employee employee = mock(Programmer);
-        manager.someMethod(employee) = arg1, arg2 {
-            arg1 = new Arg1();
-            return new Manager();
-        };
-        manager.something() = arg1 {
-            arg1 = new Arg1();
-            return new Manager();
-        };
+            int i = 10;
+            ensure testing.methodName(map(null -> 0, Integer.MIN_VALUE -> 1, 0 -> 2, Integer.MAX_VALUE -> 3));
+            ensure testing.meaningfulPublicApi() throws RuntimeException;
+            ensure testing.methodName(map(getNumber() -> 0, Integer.MIN_VALUE -> 1, 0 -> 2, count -> 3, foo.getSomeNumber()-> new Integer(12)));
+            ensure testing.doTheGamble(any, any) invoked 9;
+            ensure re.getCause() isA IOException;
+            ensure testing.methodName(anyNull) = 0;
+            ensure foo.length() = match(arg > 0 && arg == 1);
+            ensure foo.something(foo.bar) = match(arg > 0 && arg == 1);
+            ensure foo isA IOException;
+            ensure foo = match(arg > 0 && arg == 1);
+            ensure bar = result {
+                someMethod();
+                ensure testing.doTheGamble(any, any) invoked 1;
+            };
 
-        manager.setManager(any, match(arg == 1)) =  {
+            ensure testing.meaningfulPublicApi() throws RuntimeException re {
+                ensure testing.doTheGamble(any, any) invoked 1;
+                ensure myResult.getFirstName = "Brian";
+                ensure myResult.getLastName = "Langel";
+            };
+
+            ensure testing.meaningfulPublicApi() = myResult {
+                someMethod();
+                ensure testing.doTheGamble(any, any) invoked 1;
+                ensure testing.doTheGamble(any, any) invoked 1;
+                ensure myResult.getFirstName = "Brian";
+                ensure myResult.getLastName = "Langel";
+                // at end of block 'verifyNoMoreInteractions' and 'reset' are invoked
+                ensure myResult = 12;
+                ensure foo.length() = match(arg > 0 && arg == 1);
+                String foo = "Foo";
+                String value = "value";
+                Holder holder = getHolder();
+                manager.getFormalName(foo, match(employee)) throws Exception;
+                manager.getFormalName(foo, match(employee)) = "Foo";
+                manager.getFormalName(foo, match(arg == 1)) = "Foo";
+            };
+
+            Manager manager = mock();
+            Employee employee = mock(Programmer);
+            manager.someMethod(employee) = arg1, arg2 {
+                arg1 = new Arg1();
+                return new Manager();
+            };
+            manager.something() = arg1 {
+                arg1 = new Arg1();
+                return new Manager();
+            };
+
+            manager.setManager(any, match(arg == 1)) =  {
+                String foo = "Foo";
+                String value = "value";
+            };
+
             String foo = "Foo";
             String value = "value";
-        };
+            Holder holder = getHolder();
+            manager.getFormalName(foo, match(employee)) throws Exception;
+            manager.getFormalName(foo, match(employee)) = "Foo";
+            manager.getFormalName(foo, match(arg == 1)) = "Foo";
+            manager.getFormalName(match(foo).and("bar").or((arg)), any);
+            manager.getFormalName(foo, match(arg.getNumber() || 1)) = "Foo";
+            manager.getFormalName(foo, match(holder.getObject())) = "Foo";
+            manager.getFormalName(foo, match(holder.object)) = "Foo";
+            manager.getFormalName(foo, match(arg.getNumber() || value.getLength())) = "Foo";
+            manager.getFormalName(foo, match(false)) = "Foo";
+            manager.getFormalName(foo, match(false || arg.something(testMethod()))) = "Foo";
+            //
+            Company company = new Company();
+            company.formatName(match(foo).and(bar), any) throws IllegalArgumentException;
+            company.formatName(match(foo).and(bar), any) = "Result";
+            company.formatName(match(foo).or(bar), any) = "Result";
+            company.formatName(match(foo), any) = "Result";
+            company.formatName(match(arg.length() == value.length()),any) = "Result";
+            company.formatName(match(arg.length() >= value.length()),any) = "Result";
+            company.formatName(match(value.length() >= value.length),any) = "Result";
+            company.formatName(match(foo.length == 1)) = "Result";
+            company.formatName(match(foo.length != 1)) = "Result";
+            company.formatName(match(1 == foo.length())) = "Result";
+            company.formatName(match(foo.length != arg.length)) = "Result";
+            company.formatName(match(value.length() >= arg.length()),any) = "Result";
+            company.formatName(match(5 == arg.some() && arg.length == 1), match(arg.length != 2)) = "Result";
 
-        String foo = "Foo";
-        String value = "value";
-        Holder holder = getHolder();
-        manager.getFormalName(foo, match(employee)) throws Exception;
-        manager.getFormalName(foo, match(employee)) = "Foo";
-        manager.getFormalName(foo, match(arg == 1)) = "Foo";
-        manager.getFormalName(match(foo).and("bar").or((arg)), any);
-        manager.getFormalName(foo, match(arg.getNumber() || 1)) = "Foo";
-        manager.getFormalName(foo, match(holder.getObject())) = "Foo";
-        manager.getFormalName(foo, match(holder.object)) = "Foo";
-        manager.getFormalName(foo, match(arg.getNumber() || value.getLength())) = "Foo";
-        manager.getFormalName(foo, match(false)) = "Foo";
-        manager.getFormalName(foo, match(false || arg.something(testMethod()))) = "Foo";
-        //
-        Company company = new Company();
-        company.formatName(match(foo).and(bar), any) throws IllegalArgumentException;
-        company.formatName(match(foo).and(bar), any) = "Result";
-        company.formatName(match(foo).or(bar), any) = "Result";
-        company.formatName(match(foo), any) = "Result";
-        company.formatName(match(arg.length() == value.length()),any) = "Result";
-        company.formatName(match(arg.length() >= value.length()),any) = "Result";
-        company.formatName(match(value.length() >= value.length),any) = "Result";
-        company.formatName(match(foo.length == 1)) = "Result";
-        company.formatName(match(foo.length != 1)) = "Result";
-        company.formatName(match(1 == foo.length())) = "Result";
-        company.formatName(match(foo.length != arg.length)) = "Result";
-        company.formatName(match(value.length() >= arg.length()),any) = "Result";
-        company.formatName(match(5 == arg.some() && arg.length == 1), match(arg.length != 2)) = "Result";
+            company.<String, String>formatName(match(5 == arg.some() && arg.length == 1).and(arg.someFunction()).or(arg.x() || arg.y())
+                            , match(arg.length != 2)) = "Result";
 
-        company.<String, String>formatName(match(5 == arg.some() && arg.length == 1).and(arg.someFunction()).or(arg.x() || arg.y())
-                        , match(arg.length != 2)) = "Result";
+            company.formatName((match(arg.length == arg.length())), match(arg.length != 2)) = "Result";
+            company.formatName(("ss"));
+            company.formatName(match(arg.equals("Foo") || arg.equals("Bar")), (any)) = "Result";
+            comapny.formatName(any);
+            company.formatName(match(arg.s == arg.isSomething() && (arg.something || arg.booleanField)) , any) = "bar";
+            company.formatName(any, ((any))) = "Foo";
+            String bar = "Bar";
+            company.formatName(foo, any) = "Foo";
+            company.formatName(any, bar) = "Result";
+            company.formatName(foo, bar) = true;
 
-        company.formatName((match(arg.length == arg.length())), match(arg.length != 2)) = "Result";
-        company.formatName(("ss"));
-        company.formatName(match(arg.equals("Foo") || arg.equals("Bar")), (any)) = "Result";
-        comapny.formatName(any);
-        company.formatName(match(arg.s == arg.isSomething() && (arg.something || arg.booleanField)) , any) = "bar";
-        company.formatName(any, ((any))) = "Foo";
-        String bar = "Bar";
-        company.formatName(foo, any) = "Foo";
-        company.formatName(any, bar) = "Result";
-        company.formatName(foo, bar) = true;
+            Company<Software> softwareCompany = new Company<>();
+            Company<Software> softwareCompany2 = new Company<Software>();
+            company.<Company>formatName() = "Foo";
+            Company company = new Company();
+            Company comp = mock();
+            Company comp2 = mock(StartUp);
+            Company comp3;
+            comp3 = new Company();
+            comp3 = mock();
+            comp3 = mock(StartUp);
 
-        Company<Software> softwareCompany = new Company<>();
-        Company<Software> softwareCompany2 = new Company<Software>();
-        company.<Company>formatName() = "Foo";
-        Company company = new Company();
-        Company comp = mock();
-        Company comp2 = mock(StartUp);
-        Company comp3;
-        comp3 = new Company();
-        comp3 = mock();
-        comp3 = mock(StartUp);
+            comp3.getName() = "Foo";
 
-        comp3.getName() = "Foo";
-
-        String foo = "Brian";
-        company.methodName() = foo;
-        company.name = foo;
-    }   //test method
+            String foo = "Brian";
+            company.methodName() = foo;
+            company.name = foo;
+        }   //test method
 
   Employee getEmployee(@PathVariable(name = "named") String named) {    //non test method
         @MyAnnotation(
