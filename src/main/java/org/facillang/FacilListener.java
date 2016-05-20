@@ -17,6 +17,26 @@ public interface FacilListener extends ParseTreeListener {
 	 */
 	void exitFacilCompilation(FacilParser.FacilCompilationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link FacilParser#packageDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterPackageDeclaration(FacilParser.PackageDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#packageDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitPackageDeclaration(FacilParser.PackageDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link FacilParser#importDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterImportDeclaration(FacilParser.ImportDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link FacilParser#importDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitImportDeclaration(FacilParser.ImportDeclarationContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link FacilParser#testClassDeclaration}.
 	 * @param ctx the parse tree
 	 */
